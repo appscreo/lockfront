@@ -1,0 +1,248 @@
+/*
+ * Lockfront – Admin Styles
+ * Tab design matches WooCommerce exactly: flat underline indicator,
+ * no box/border around the tab bar, flush with the page heading.
+ */
+
+/* =====================================================================
+   Page wrapper
+   ===================================================================== */
+
+.lkfr-wrap {
+	max-width: 900px;
+}
+
+/* Page heading with lock icon */
+.lkfr-page-heading {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 1.4rem;
+	font-weight: 600;
+	margin-bottom: 0;          /* Tab bar sits flush under the heading */
+	padding-bottom: 0;
+	color: #1d2327;
+	line-height: 1.2;
+}
+
+.lkfr-page-heading svg {
+	flex-shrink: 0;
+	color: #2271b1;
+}
+
+/* =====================================================================
+   Tab navigation  –  identical to WooCommerce / WP core nav-tab style
+   ===================================================================== */
+
+.lkfr-tabs {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: flex-end;
+	gap: 0;
+	/* 8px gap between heading and tabs; tabs sit on the border-top of the panel */
+	margin: 8px 0 0;
+	padding: 0;
+	/* Thin bottom border that extends the full width (same colour as panel border) */
+	border-bottom: 1px solid #c3c4c7;
+}
+
+.lkfr-tab {
+	/* Typography */
+	font-size: 14px;
+	font-weight: 400;
+	color: #50575e;
+	text-decoration: none;
+
+	/* Box */
+	display: inline-block;
+	padding: 9px 16px 10px;
+	margin-bottom: -1px;          /* Overlap the border-bottom so active tab "erases" it */
+	background: transparent;
+	border: 1px solid transparent;
+	border-bottom: none;
+
+	/* Transitions */
+	transition: color 0.15s;
+}
+
+.lkfr-tab:hover,
+.lkfr-tab:focus {
+	color: #1d2327;
+	background: transparent;
+	border-color: transparent;
+	outline: none;
+}
+
+/* Active tab: solid left/top/right border + white bottom to merge with panel */
+.lkfr-tab--active,
+.lkfr-tab--active:hover,
+.lkfr-tab--active:focus {
+	color: #1d2327;
+	font-weight: 600;
+	background: #fff;
+	border-color: #c3c4c7;       /* left, top, right */
+	border-bottom-color: #fff;   /* erases the nav border-bottom */
+	/* The blue underline WooCommerce uses on the active tab */
+	box-shadow: inset 0 2px 0 #2271b1;
+}
+
+/* =====================================================================
+   Tab content panel
+   ===================================================================== */
+
+.lkfr-panel {
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-top: none;            /* Tab bar provides the top edge */
+	padding: 24px 24px 4px;
+	margin-bottom: 24px;
+}
+
+/* Section headings inside the panel */
+.lkfr-panel h2 {
+	font-size: 14px;
+	font-weight: 600;
+	color: #1d2327;
+	margin: 0 0 4px;
+	padding: 0;
+}
+
+.lkfr-panel h3 {
+	font-size: 13px;
+	font-weight: 600;
+	margin: 16px 0 4px;
+}
+
+/* Horizontal rules between sections */
+.lkfr-panel hr {
+	border: none;
+	border-top: 1px solid #f0f0f1;
+	margin: 20px 0;
+}
+
+/* form-table spacing */
+.lkfr-panel .form-table th {
+	width: 220px;
+	padding: 15px 10px 15px 0;
+	font-weight: 500;
+}
+.lkfr-panel .form-table td {
+	padding: 12px 10px;
+}
+
+/* Sub-group labels (Input / Button / Error inside Form Colors) */
+.lkfr-panel .form-table tr > th:empty,
+.lkfr-panel .form-table tr > td strong {
+	display: block;
+	padding-top: 12px;
+	padding-bottom: 2px;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+	color: #666;
+}
+
+/* =====================================================================
+   Save bar
+   ===================================================================== */
+
+.lkfr-save-bar {
+	padding: 16px 0 20px;
+	border-top: 1px solid #f0f0f1;
+	margin-top: 8px;
+}
+
+/* =====================================================================
+   Toggle switch
+   ===================================================================== */
+
+/* The hidden "0" input must not render */
+.lkfr-toggle input[type="hidden"] {
+	display: none;
+}
+
+.lkfr-toggle {
+	display: inline-flex;
+	align-items: center;
+	gap: 0;
+	cursor: pointer;
+	line-height: 1;
+}
+
+.lkfr-toggle input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+}
+
+.lkfr-slider {
+	display: inline-block;
+	position: relative;
+	width: 44px;
+	height: 24px;
+	background: #c3c4c7;
+	border-radius: 12px;
+	transition: background 0.2s;
+	flex-shrink: 0;
+}
+
+.lkfr-slider::after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 18px;
+	height: 18px;
+	background: #fff;
+	border-radius: 50%;
+	transition: transform 0.2s;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+}
+
+.lkfr-toggle input[type="checkbox"]:checked + .lkfr-slider {
+	background: #2271b1;
+}
+
+.lkfr-toggle input[type="checkbox"]:checked + .lkfr-slider::after {
+	transform: translateX(20px);
+}
+
+.lkfr-toggle input[type="checkbox"]:focus-visible + .lkfr-slider {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+}
+
+/* =====================================================================
+   Range slider
+   ===================================================================== */
+
+.lkfr-range {
+	vertical-align: middle;
+	width: 200px;
+	accent-color: #2271b1;
+	cursor: pointer;
+}
+
+.lkfr-range-val {
+	display: inline-block;
+	min-width: 28px;
+	text-align: right;
+	font-weight: 600;
+	margin-left: 6px;
+	color: #1d2327;
+}
+
+/* =====================================================================
+   Colour picker
+   ===================================================================== */
+
+/* Force the colour preview to a fixed small width */
+.lkfr-color { width: 80px !important; }
+
+/* =====================================================================
+   Image field
+   ===================================================================== */
+
+.lkfr-img-url { max-width: 280px !important; }
