@@ -6,6 +6,9 @@
   Clean, fast, zero dependencies.
 </p>
 
+![General Settings](https://raw.githubusercontent.com/appscreo/lockfront/main/assets/screenshot-main.png)
+
+
 <p align="center">
   <img src="https://img.shields.io/badge/WordPress-%3E%3D6.0-21759b?logo=wordpress&logoColor=white" alt="WordPress 6.0+">
   <img src="https://img.shields.io/badge/PHP-%3E%3D7.4-777bb4?logo=php&logoColor=white" alt="PHP 7.4+">
